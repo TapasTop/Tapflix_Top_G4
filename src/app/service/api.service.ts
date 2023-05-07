@@ -11,7 +11,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
   getPerfil(): Observable<Perfil> {
-    return this.http.get<Perfil>("https://tapastop-tapastop-rest.azuremicroservices.io/user/3");
+    const headers = { 'Authorization' : 'Bearer'+ this.getToken() };
+    return this.http.get<Perfil>("https://tapastop-tapastop-rest.azuremicroservices.io/user/1", {headers});
   }
   login(creds: Credentials) {
     return this.http.post("https://tapastop-tapastop-rest.azuremicroservices.io/login", creds, {
