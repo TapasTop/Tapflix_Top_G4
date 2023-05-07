@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class LoginComponent {
 
-  email : String | undefined ;
+  username : String | undefined ;
   password : String | undefined;
 
   constructor(private apiService: ApiService, private route: Router) { }
