@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class LoginComponent {
 
-  email : String | undefined ;
+  username : String | undefined ;
   password : String | undefined;
 
   constructor(private apiService: ApiService, private route: Router) { }
@@ -17,7 +17,7 @@ export class LoginComponent {
 
   login(){
 
-    const creds = { email: '', password: '' };
+    const creds = { username: 'admin', password: '1234' };
     this.apiService.login(creds).subscribe((response) => {
       this.route.navigate(['/home']);
     })
