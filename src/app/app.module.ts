@@ -9,8 +9,9 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
 import {HttpClientModule} from '@angular/common/http';
 import { MovieApiServiceService } from './service/movie-api-service.service';
 
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,14 @@ import { ProfileComponent } from './pages/profile/profile.component';
     HomeComponent,
     SearchComponent,
     MovieDetailsComponent,
-    ProfileComponent
+    ProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [MovieApiServiceService],

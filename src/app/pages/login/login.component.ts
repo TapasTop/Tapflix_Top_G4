@@ -10,10 +10,11 @@ export class LoginComponent {
   email : String | undefined ;
   password : String | undefined;
   
-  constructor() { }
+  constructor() {}
 
 
   login(){
+    const user = { email: this.email, password: this.password };
     console.log("logeado");
   }
 
