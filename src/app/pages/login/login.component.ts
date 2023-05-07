@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/service/login.service';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-login',
@@ -11,16 +11,17 @@ export class LoginComponent {
 
   email : String | undefined ;
   password : String | undefined;
-  
-  constructor(private loginService: LoginService, private route: Router) {}
+
+  constructor(private apiService: ApiService, private route: Router) { }
 
 
   login(){
 
-    const user = { email: this.email, password: this.password };
-    this.loginService.login(user).subscribe((data) => {
-    });
-    this.route.navigate(['/home']);
+    const creds = { email: '', password: '' };
+    this.apiService.login(creds).subscribe((response) => {
+      this.route.navigate(['/home']);
+    })
+
     
   }
 
