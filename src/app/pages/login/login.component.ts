@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
-import { Credentials } from '../models';
+import { Credentials } from '../../models';
 
 @Component({
   selector: 'app-login',
@@ -11,15 +11,17 @@ import { Credentials } from '../models';
 export class LoginComponent {
 
   
-  username : String | undefined ;
-  password : String | undefined;
+  username : String | undefined;
+  password : String | undefined; 
 
-  constructor(private apiService: ApiService, private route: Router) {}
+  constructor(private apiService: ApiService, private route: Router) {
+
+  }
   login(){
-    
-    Credentials.username = this.username;
-    Credentials.password = this.password;
-    this.apiService.login(Credentials).subscribe((response) => {
+    const creds: Credentials = { username : this.username, password : this.password};
+    console.log(creds);
+    this.apiService.login(creds).subscribe((response) => {
+     
       this.route.navigate(['/home']);
     })
 

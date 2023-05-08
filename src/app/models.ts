@@ -13,6 +13,6 @@ export interface Perfil{
   enabled: boolean;
 }
 export interface Credentials {
-  username: string;
-  password: string;
+  username: String | undefined;
+  password: String | undefined;
 }
