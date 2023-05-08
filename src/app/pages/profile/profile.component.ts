@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieApiServiceService } from 'src/app/service/movie-api-service.service';
 import { Title, Meta } from '@angular/platform-browser';
-import { HttpClient } from '@angular/common/http';
+import { ApiService } from 'src/app/service/api.service';
+import { Perfil } from '../../models';
 
 @Component({
   selector: 'app-profile',
@@ -10,16 +10,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
-  product: any;
+  constructor(private apiService: ApiService) { }
+  product!: Perfil;
 
   ngOnInit(): void {
-      //const headers = {
-      //  'Authorization': 'Basic YWRtaW4xOjEyMzQ='
-      //}
-    this.http.get<any>('https://tapastop-tapastop-rest.azuremicroservices.io/user/3')
-      .subscribe(data => this.product = data);
+    this.apiService.getPerfil().subscribe((response) => {
+      this.product = response;
+    })
   }
+
   }
 
 
