@@ -10,9 +10,11 @@ import { Credentials, Perfil } from '../models';
 export class ApiService {
 
   constructor(private http: HttpClient) { }
+
   getPerfil(): Observable<Perfil> {
     return this.http.get<Perfil>("https://tapastop-tapastop-rest.azuremicroservices.io/user/3");
   }
+
   login(creds: Credentials) {
     return this.http.post("https://tapastop-tapastop-rest.azuremicroservices.io/login", creds, {
       observe: 'response'
@@ -29,5 +31,69 @@ export class ApiService {
   }
   getToken() {
     return localStorage.getItem('token');
+  }
+
+  getAllRestaurants(): Observable <any>{
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/restaurant");
+  }
+
+  getRestaurantById(id : number) : Observable <any>{
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/restaurant/${id}");
+  }
+
+  postRestaurant(restaurantRequest: any ): Observable<any>{
+    return this.http.post("https://tapastop-tapastop-rest.azuremicroservices.io/api/restaurant",restaurantRequest);
+  }
+
+  deleteRestaurant(id: number): Observable<any>{
+    return this.http.delete("https://tapastop-tapastop-rest.azuremicroservices.io/api/restaurant/${id}");
+  }
+
+  getAllTapas(): Observable<any>{
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa");
+  }
+
+  getTapaById(id: number): Observable <any>{
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/${id}");
+  }
+
+  postTapa(TapaRequest: any): Observable<any>{
+    return this.http.post("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa",TapaRequest);
+  }
+
+  deleteTapa(id: number): Observable<any>{
+    return this.http.delete("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/${id}");
+  }
+
+  getTapaByTaste(taste: String): Observable<any>{
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/taste/${taste}");
+  }
+
+  getTapasByUser(username: String): Observable<any>{
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/rated/${username}");
+  }
+
+  getAllUsers(): Observable<any>{
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/user");
+  }
+
+  getUserById(id: number): Observable<any>{
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/user/${id}");
+  }
+
+  postUser(userRequest: any): Observable<any>{
+    return this.http.post("https://tapastop-tapastop-rest.azuremicroservices.io/api/signup",userRequest);
+  }
+
+  deleteUser(id: number): Observable<any>{
+    return this.http.delete("https://tapastop-tapastop-rest.azuremicroservices.io/api/user/${id}");
+  }
+
+  confirmToken(token: any): Observable<any>{
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/confirm-account?token=${token}");
+  }
+
+  getMailByUser(mail: String): Observable<any>{
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/user/mail/${mail}");
   }
 }
