@@ -5,10 +5,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SearchComponent } from './pages/search/search.component';
-import { LoginComponent } from './pages/login/login.component';
+
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
   {path:'home',component:HomeComponent},
   {path:'search',component:SearchComponent},
   { path: 'movie/:id', component: MovieDetailsComponent },
