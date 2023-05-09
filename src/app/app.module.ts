@@ -6,13 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/search/search.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { MovieApiServiceService } from './service/movie-api-service.service';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
+import { InterceptorService } from './interceptor/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,10 @@ import { LoginComponent } from './pages/login/login.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [MovieApiServiceService],
+  providers: [
+    MovieApiServiceService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
