@@ -71,7 +71,7 @@ export class ApiService {
   }
 
   getTapasByUser(username: String): Observable<any>{
-    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/rated/${username}");
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/rated/" + username);
   }
 
   getAllUsers(): Observable<any>{

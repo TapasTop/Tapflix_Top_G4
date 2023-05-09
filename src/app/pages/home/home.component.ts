@@ -11,6 +11,8 @@ import { ApiService } from 'src/app/service/api.service';
 export class HomeComponent implements OnInit {
 
   locales : any = [];
+  misDegustaciones: any = [];
+  degustacionesFavs: any = [];
 
   constructor(private service: MovieApiServiceService,private title:Title, private apiService: ApiService) {
     this.title.setTitle('Home - TapasTop');
@@ -38,7 +40,10 @@ export class HomeComponent implements OnInit {
     this.documentaryMovie();
     this.sciencefictionMovie();
     this.thrillerMovie();
+
     this.cargarLocales();
+    this.cargarDegustaciones();
+    this.cargarDegustacionesFavs();
   }
 
   cargarLocales(){
@@ -46,10 +51,22 @@ export class HomeComponent implements OnInit {
       this.locales = result;
     });
   }
+  cargarDegustaciones(){
+    this.apiService.getTapasByUser("admin").subscribe((result)=>{
+        this.misDegustaciones = result;
+        console.log(this.misDegustaciones);
+    });
+  }
+
+  cargarDegustacionesFavs(){
+    this.apiService.getTapaByTaste("SALTY").subscribe((result)=>{
+      this.degustacionesFavs = result;
+      console.log(this.degustacionesFavs);
+    });
+  }
   // bannerdata
   bannerData() {
     this.service.bannerApiData().subscribe((result) => {
-      console.log(result, 'bannerresult#');
       this.bannerResult = result.results;
     });
   }
