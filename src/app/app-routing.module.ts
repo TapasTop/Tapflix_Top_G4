@@ -6,6 +6,7 @@ import { MovieDetailsComponent } from './pages/movie-details/movie-details.compo
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SearchComponent } from './pages/search/search.component';
 import { LoginComponent } from './pages/login/login.component';
+import { LocalesDetailsComponent } from './pages/locales-details/locales-details.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'search',component:SearchComponent},
   { path: 'movie/:id', component: MovieDetailsComponent },
+  { path: 'locales/:id', component: LocalesDetailsComponent},
   { path: 'profile', component: ProfileComponent }
 ];
 

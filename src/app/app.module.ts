@@ -14,6 +14,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { InterceptorService } from './interceptor/interceptor.service';
+import { LocalesDetailsComponent } from './pages/locales-details/locales-details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { InterceptorService } from './interceptor/interceptor.service';
     MovieDetailsComponent,
     ProfileComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    LocalesDetailsComponent
   ],
   imports: [
     BrowserModule,
