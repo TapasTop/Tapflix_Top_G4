@@ -10,14 +10,17 @@ import { ApiService } from 'src/app/service/api.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: MovieApiServiceService,private title:Title,private meta:Meta, private apiService: ApiService) {
-    this.title.setTitle('Home - showtime');
-    this.meta.updateTag({name:'description',content:'watch online movies'});
+  locales : any = [];
+
+  constructor(private service: MovieApiServiceService,private title:Title, private apiService: ApiService) {
+    this.title.setTitle('Home - TapasTop');
+
     
    }
 
   bannerResult: any = [];
-  trendingMovieResult: any = [];
+
+
   actionMovieResult: any = [];
   adventureMovieResult: any = [];
   animationMovieResult: any = [];
@@ -28,7 +31,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.bannerData();
-    this.trendingData();
     this.actionMovie();
     this.adventureMovie();
     this.comedyMovie();
@@ -36,12 +38,12 @@ export class HomeComponent implements OnInit {
     this.documentaryMovie();
     this.sciencefictionMovie();
     this.thrillerMovie();
-    this.cargarApi();
+    this.cargarLocales();
   }
 
-  cargarApi(){
+  cargarLocales(){
     this.apiService.getAllRestaurants().subscribe((result)=> {
-      console.log(result);
+      this.locales = result;
     });
   }
   // bannerdata
@@ -52,13 +54,6 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  trendingData() {
-    this.service.trendingMovieApiData().subscribe((result) => {
-      console.log(result, 'trendingresult#');
-      this.trendingMovieResult = result.results;
-      // this.trendingMovieResult
-    });
-  }
 
   // action 
   actionMovie() {
