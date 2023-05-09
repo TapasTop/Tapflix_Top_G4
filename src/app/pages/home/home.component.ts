@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieApiServiceService } from 'src/app/service/movie-api-service.service';
 import { Title,Meta } from '@angular/platform-browser';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { Title,Meta } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service: MovieApiServiceService,private title:Title,private meta:Meta) {
+  constructor(private service: MovieApiServiceService,private title:Title,private meta:Meta, private apiService: ApiService) {
     this.title.setTitle('Home - showtime');
     this.meta.updateTag({name:'description',content:'watch online movies'});
     
@@ -35,9 +36,14 @@ export class HomeComponent implements OnInit {
     this.documentaryMovie();
     this.sciencefictionMovie();
     this.thrillerMovie();
+    this.cargarApi();
   }
 
-
+  cargarApi(){
+    this.apiService.getAllRestaurants().subscribe((result)=> {
+      console.log(result);
+    });
+  }
   // bannerdata
   bannerData() {
     this.service.bannerApiData().subscribe((result) => {

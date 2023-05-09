@@ -18,8 +18,8 @@ export class LoginComponent {
 
   }
   login(){
-    const creds: Credentials = { username : this.username, password : this.password};
-    console.log(creds);
+    //const creds: Credentials = { username : this.username, password : this.password};
+    const creds = { username: 'admin', password: '1234' };
     this.apiService.login(creds).subscribe((response) => {
      
       this.route.navigate(['/home']);
