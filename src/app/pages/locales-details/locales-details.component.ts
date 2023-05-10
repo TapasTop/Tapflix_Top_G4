@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-locales-details',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LocalesDetailsComponent implements OnInit {
 
-  constructor() { }
+  localDetails: any = [];
+
+  constructor(private apiService: ApiService, private rutaActiva: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.cargarLocal(this.rutaActiva.snapshot.params['id']);
+  }
+
+  cargarLocal(id : number){
+    this.apiService.getRestaurantById(id).subscribe((result)=>{
+      this.localDetails = result;
+      console.log(result);
+    });
+  
   }
 
 }

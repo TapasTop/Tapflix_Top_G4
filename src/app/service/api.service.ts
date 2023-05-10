@@ -39,7 +39,7 @@ export class ApiService {
   }
 
   getRestaurantById(id : number) : Observable <any>{
-    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/restaurant/${id}");
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/restaurant/"+id);
   }
 
   postRestaurant(restaurantRequest: any ): Observable<any>{
