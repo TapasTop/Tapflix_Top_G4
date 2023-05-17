@@ -12,7 +12,7 @@ import { LocalesDetailsComponent } from './pages/locales-details/locales-details
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'home',component:HomeComponent},
-  {path:'search',component:SearchComponent},
+  { path: 'search', component: SearchComponent },
   { path: 'movie/:id', component: MovieDetailsComponent },
   { path: 'locales/:id', component: LocalesDetailsComponent},
   { path: 'profile', component: ProfileComponent }

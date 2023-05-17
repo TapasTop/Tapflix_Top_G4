@@ -55,7 +55,7 @@ export class ApiService {
   }
 
   getTapaById(id: number): Observable <any>{
-    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/${id}");
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/{id}");
   }
 
   postTapa(TapaRequest: any): Observable<any>{
@@ -67,7 +67,7 @@ export class ApiService {
   }
 
   getTapaByTaste(taste: String): Observable<any>{
-    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/taste/${taste}");
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/taste/"+taste);
   }
 
   getTapasByUser(username: String): Observable<any>{
@@ -79,7 +79,7 @@ export class ApiService {
   }
 
   getUserById(id: number): Observable<any>{
-    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/user/${id}");
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/user/"+id);
   }
 
   postUser(userRequest: any): Observable<any>{

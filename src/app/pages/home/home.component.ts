@@ -32,14 +32,14 @@ export class HomeComponent implements OnInit {
   thrillerMovieResult: any = [];
 
   ngOnInit(): void {
-    this.bannerData();
-    this.actionMovie();
-    this.adventureMovie();
-    this.comedyMovie();
-    this.animationMovie();
-    this.documentaryMovie();
-    this.sciencefictionMovie();
-    this.thrillerMovie();
+    //this.bannerData();
+    //this.actionMovie();
+    //this.adventureMovie();
+    //this.comedyMovie();
+    //this.animationMovie();
+    //this.documentaryMovie();
+    //this.sciencefictionMovie();
+    //this.thrillerMovie();
 
     this.cargarLocales();
     this.cargarDegustaciones();
@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
     });
   }
   cargarDegustaciones(){
-    this.apiService.getTapasByUser("admin").subscribe((result)=>{
+    this.apiService.getTapasByUser("padrura").subscribe((result)=>{
         this.misDegustaciones = result;
         console.log(this.misDegustaciones);
     });

@@ -12,9 +12,11 @@ export class ProfileComponent implements OnInit {
 
   constructor(private apiService: ApiService) { }
   product!: Perfil;
+  numero = 1;
 
   ngOnInit(): void {
-    this.apiService.getPerfil().subscribe((response) => {
+
+    this.apiService.getUserById(this.numero).subscribe((response) => {
       this.product = response;
     })
   }
