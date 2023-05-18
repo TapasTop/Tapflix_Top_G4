@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -15,6 +15,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { InterceptorService } from './interceptor/interceptor.service';
 import { LocalesDetailsComponent } from './pages/locales-details/locales-details.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +26,16 @@ import { LocalesDetailsComponent } from './pages/locales-details/locales-details
     ProfileComponent,
     NavbarComponent,
     LoginComponent,
-    LocalesDetailsComponent
+    LocalesDetailsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([])
   ],
   providers: [
     MovieApiServiceService,
