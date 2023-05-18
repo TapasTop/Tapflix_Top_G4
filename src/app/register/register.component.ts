@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/service/api.service';
 import { Perfil } from '../models';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,7 @@ export class RegisterComponent implements OnInit {
   username : String | undefined;
   password : String | undefined;
   email : String | undefined;
-  birthdate: String | undefined;
+  birthdate: string | undefined;
   name: String | undefined;
 
 
@@ -33,6 +34,14 @@ export class RegisterComponent implements OnInit {
             this.birthdate &&
             this.name
           ){
+              const today = new Date();
+              const birthdate = new Date(this.birthdate.toString());
+              const age = today.getFullYear() - birthdate.getFullYear();
+
+              if (age < 18) {
+                console.log('Error: La edad debe ser mayor o igual a 18');
+                return;
+              }
           const Profile = {
                   username: this.username,
                   password: this.password,
@@ -42,10 +51,30 @@ export class RegisterComponent implements OnInit {
                   birthdate: this.birthdate
                 };
 
-                this.apiService.postUser(Profile).subscribe(() => {
-                      // Registro exitoso, redirige al componente de inicio de sesión
-                      this.route.navigate(['/login']);
-                    });
+
+
+                this.apiService.postUser(Profile).subscribe(
+                  () => {
+                    // Registro exitoso, redirige al componente de inicio de sesión
+                    this.route.navigate(['/login']);
+                  },
+                  (error: HttpErrorResponse) => {
+                    if (error.status === 401) {
+                    this.route.navigate(['/login']);
+                      // Error 400: solicitud incorrecta
+                      // Aquí puedes mostrar un mensaje de error específico o realizar otras acciones según tus necesidades
+                      console.log('Error 400: Solicitud incorrecta hola');
+                    } else {
+                      // Otro tipo de error
+                      const errorContainer = document.getElementById('error-container') || undefined;
+                      if (errorContainer) {
+                        errorContainer.textContent = 'Error:' + error.error.message;
+                      }
+                      console.log('Error en la solicitud:', error.error);
+
+                    }
+                  }
+                );
 
           }
 

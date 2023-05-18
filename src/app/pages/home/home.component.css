@@ -3,6 +3,10 @@
     height: 700px;
 }
 
+.contenedor{
+margin-top: 1000px;
+}
+
 .carousel-inner .carousel-item img
 {
     height: 700px;
@@ -16,7 +20,7 @@
     font-size: 30px;
 }
 
-.carousel-caption p 
+.carousel-caption p
 {
     color: #ffffff;
 }
@@ -51,3 +55,20 @@
 {
     display: none;
 }
+
+@keyframes openCircle {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+.overlay {
+  animation: openCircle 10s ease-in-out forwards;
+
+}
+
+

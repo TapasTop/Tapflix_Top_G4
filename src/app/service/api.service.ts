@@ -55,7 +55,7 @@ export class ApiService {
   }
 
   getTapaById(id: number): Observable <any>{
-    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/{id}");
+    return this.http.get("https://tapastop-tapastop-rest.azuremicroservices.io/api/tapa/"+id);
   }
 
   postTapa(TapaRequest: any): Observable<any>{

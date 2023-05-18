@@ -16,6 +16,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { InterceptorService } from './interceptor/interceptor.service';
 import { LocalesDetailsComponent } from './pages/locales-details/locales-details.component';
 import { RegisterComponent } from './register/register.component';
+import { TapasDetailsComponent } from './pages/tapas-details/tapas-details.component';
+import { TapasComponent } from './pages/tapas/tapas.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { RegisterComponent } from './register/register.component';
     NavbarComponent,
     LoginComponent,
     LocalesDetailsComponent,
-    RegisterComponent
+    RegisterComponent,
+    TapasDetailsComponent,
+    TapasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,64 @@
 .container{
     color:aliceblue;
+    background-color: #f8f9fa; /* Color de fondo */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 90px;
+
+}
+
+.star {
+  border: none; /* Sin bordes */
+  background-color: transparent; /* Sin fondo */
+  padding: 0; /* Sin espaciado interno */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima */
+  /* Otros estilos personalizados */
+  /* ... */
+}
+
+.card {
+  border-radius: 50px; /* Hace que el recuadro sea más redondo */
+  margin-top: 2 rem; /* Añade espacio superior entre la imagen y el recuadro */
+}
+
+
+
+.card-img-top {
+  width: 800px; /* Ajusta el tamaño de la imagen según tus necesidades */
+  height: auto; /* Ajusta la altura de la imagen automáticamente */
+  border-radius: 2%; /* Hace que la imagen sea circular */
+  margin: 2rem auto; /* Añade espacio arriba y abajo y centra la imagen horizontalmente */
+}
+
+.custom-title {
+  font-size: 2.5rem; /* Ajusta el tamaño de fuente según tus preferencias */
+}
+
+.custom-text {
+  font-size: 1.5rem; /* Ajusta el tamaño de fuente según tus preferencias */
+}
+
+
+.card-body {
+  text-align: center; /* Centra el contenido del card-body */
+}
+
+.rating {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente las estrellas */
+  margin-top: 1rem; /* Añade espacio superior */
+}
+
+.btn-primary {
+  margin: 1rem auto; /* Centra el botón horizontalmente y añade espacio alrededor */
+}
+
+
+.rating .star i {
+  color: #ccc; /* Color de las estrellas inactivas */
+  transition: color 0.2s; /* Transición suave del color */
+}
+
+.rating .star:hover i,
+.rating .star:hover ~ .star i {
+  color: yellow; /* Color de las estrellas al pasar el cursor por encima */
 }

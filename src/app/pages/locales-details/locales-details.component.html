@@ -1,11 +1,24 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <div class="contain-fluid">
-    <div class="card" style="width: 18rem;">
-        <img [src]="localDetails.picture" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">{{localDetails.name}}</h5>
-          <p class="card-text">{{localDetails.description}}</p>
-          <a href="" class="btn btn-primary">Go somewhere</a>
-        </div>
+  <div class="vh-100 d-flex justify-content-center align-items-center">
+  <div class="card" style="width: 70rem;">
+    <img [src]="localDetails.picture" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title custom-title">{{localDetails.name}}</h5>
+      <p class="card-text custom-text">{{localDetails.description}}</p>
+      <div class="rating fs-2">
+        <button class="star" (click)="rate(1)"><i class="fas fa-star"></i></button>
+        <button class="star" (click)="rate(2)"><i class="fas fa-star"></i></button>
+        <button class="star" (click)="rate(3)"><i class="fas fa-star"></i></button>
+        <button class="star" (click)="rate(4)"><i class="fas fa-star"></i></button>
+        <button class="star" (click)="rate(5)"><i class="fas fa-star"></i></button>
       </div>
+
+
+      <a href="" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+  </div>
 </div>
+
 

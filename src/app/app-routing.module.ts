@@ -8,6 +8,8 @@ import { SearchComponent } from './pages/search/search.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LocalesDetailsComponent } from './pages/locales-details/locales-details.component';
 import { RegisterComponent } from './register/register.component';
+import { TapasDetailsComponent} from './pages/tapas-details/tapas-details.component';
+import { TapasComponent} from './pages/tapas/tapas.component';
 
 
 
@@ -19,7 +21,12 @@ const routes: Routes = [
   { path: 'movie/:id', component: MovieDetailsComponent },
   { path: 'locales/:id', component: LocalesDetailsComponent},
   { path: 'profile', component: ProfileComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  {path:'login',component:LoginComponent},
+  { path: 'degustacion/:id', component: TapasDetailsComponent},
+  {path:'tapas',component:TapasComponent}
+
+
 
 ];
 
