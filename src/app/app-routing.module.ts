@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { profile } from 'console';
 import { HomeComponent } from './pages/home/home.component';
-import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SearchComponent } from './pages/search/search.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -18,7 +17,6 @@ const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'home',component:HomeComponent},
   { path: 'search', component: SearchComponent },
-  { path: 'movie/:id', component: MovieDetailsComponent },
   { path: 'locales/:id', component: LocalesDetailsComponent},
   { path: 'profile', component: ProfileComponent },
   { path: 'register', component: RegisterComponent },

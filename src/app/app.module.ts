@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/search/search.component';
-import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { MovieApiServiceService } from './service/movie-api-service.service';
 
@@ -24,7 +23,6 @@ import { TapasComponent } from './pages/tapas/tapas.component';
     AppComponent,
     HomeComponent,
     SearchComponent,
-    MovieDetailsComponent,
     ProfileComponent,
     NavbarComponent,
     LoginComponent,
